@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from .utils import get_or_generate_salt
 
 
-PRODUCTION = True
+PRODUCTION = False
 
 PREFIX = "SYMMETRIC_KEYS_APP_"
 FROM_NONE_ERROR_HINT = "Set PRODUCTION=False or add '#debug'-tag for full traceback"
