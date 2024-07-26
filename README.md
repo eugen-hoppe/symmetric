@@ -2,7 +2,7 @@
 
 Symmetric is a streamlined Python library for symmetric encryption, designed to simplify secure data handling with minimal setup. Symmetric aims to reduce the complexity of cryptographic operations while maintaining robust security standards.
 
-**Version: `1.0`**
+**Version: `1.1`**
 
 **Python: `>=3.10`**
 
@@ -12,8 +12,16 @@ Symmetric is a streamlined Python library for symmetric encryption, designed to 
 
 #### Production
 
+##### v:latest
+
 ```bash
 pip install git+https://github.com/eugen-hoppe/symmetric.git
+```
+
+##### v:1.0
+
+```bash
+pip install git+https://github.com/eugen-hoppe/symmetric.git@82c87b3f79435f5bf389aca2351787e11eb03b54
 ```
 
 #### Development
