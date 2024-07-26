@@ -27,7 +27,7 @@ class SymmetricEncryptionInterface(ABC):
         Args:
             payload (str): The plaintext data to be encrypted.
             symmetric_key (str): The symmetric key used for encryption.
-            options (Options | None): Configuration options for encryption, such as 
+            options (Options | None): Configuration options for encryption, such as
               block size, iterations, etc.
 
         Returns:
@@ -60,7 +60,9 @@ class AbstractKey(ABC):
     """
 
     @abstractmethod
-    def __init__(self, algorithm: SymmetricEncryptionInterface, options: Options) -> None:
+    def __init__(
+        self, algorithm: SymmetricEncryptionInterface, options: Options
+    ) -> None:
         """
         Initializes a new instance of an encryption key handler.
 

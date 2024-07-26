@@ -43,5 +43,7 @@ def test_key_generation():
     options = Options(PBKDF2HMAC_SALT="Salt123456789")
     algo = ConcreteEncryption()
     key_instance = create_test_key_instance(algo, options)
-    generated_key = key_instance.generate("password", lambda x, y: x+"-fixed-key-"+y)
+    generated_key = key_instance.generate(
+        "password", lambda x, y: x + "-fixed-key-" + y
+    )
     assert generated_key == "generated-key-password-a-fixed-key-b"

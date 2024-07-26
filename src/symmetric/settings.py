@@ -8,18 +8,19 @@ from dotenv import load_dotenv
 from .utils import get_or_generate_salt
 
 
-PREFIX = "SYMMETRIC_KEYS_APP"
+PRODUCTION = True
+
+PREFIX = "SYMMETRIC_KEYS_APP_"
 FROM_NONE_ERROR_HINT = "Set PRODUCTION=False or add '#debug'-tag for full traceback"
-PRODUCTION = os.getenv(f"{PREFIX}_IS_PROD", "True") == "True"
 
 
 load_dotenv()
 
 
-class Err(Enum):
-    GENERATE = "Key generation error"
-    ENCRYPT = "Encryption error"
-    DECRYPT = "Decryption error"
+class Err(str, Enum):
+    GENERATE: str = "Key generation error"
+    ENCRYPT: str = "Encryption error"
+    DECRYPT: str = "Decryption error"
 
     @property
     def value(self) -> tuple[Exception, str, str]:
@@ -34,9 +35,10 @@ class Err(Enum):
 class Options:
     # Key Generator
     # =============
-    PBKDF2HMAC_SALT: str = get_or_generate_salt(f"{PREFIX}_PBKDF2HMAC_SALT")
-    PBKDF2HMAC_LENGTH: int = os.getenv(f"{PREFIX}_PBKDF2HMAC_LENGTH", 32)
-    PBKDF2HMAC_ITERATIONS: int = os.getenv(f"{PREFIX}_PBKDF2HMAC_ITERATIONS", 100_000)
+    PBKDF2HMAC_SALT: str = get_or_generate_salt(f"{PREFIX}PBKDF2HMAC_SALT")
+    PBKDF2HMAC_LENGTH: int = os.getenv(f"{PREFIX}PBKDF2HMAC_LENGTH", 32)
+    PBKDF2HMAC_ITERATIONS: int = os.getenv(f"{PREFIX}PBKDF2HMAC_ITERATIONS", 100_000)
+    IS_PORD: str = PRODUCTION
 
     # Encryption Algorithms
     # =====================

@@ -7,9 +7,7 @@ PLUS = " + "
 
 
 def encryption_chacha(data: str, password: str, decrpypt: bool = False):
-    key = Key(
-        algorithm=ChaCha20()  # default AES
-    )
+    key = Key(algorithm=ChaCha20())  # default AES
     if not decrpypt:
         return key.encrypt(data, key.generate(password))
     return key.decrypt(data, key.generate(password))
